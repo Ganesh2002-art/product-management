@@ -1,0 +1,5 @@
+name,sku,price,quantity,category
+Laptop,LAP001,55000,10,Electronics
+Mouse,MOU001,500,50,Accessories
+Keyboard,KEY001,1500,20,Accessories
+Monitor,MON001,12000,15,Electronics
