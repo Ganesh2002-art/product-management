@@ -6,19 +6,24 @@ function CsvUpload({ reload }) {
  const [file, setFile] = useState(null);
  const [result, setResult] = useState(null);
 
- const upload = async () => {
+const upload = async () => {
 
-  if (!file) {
-   alert("Please select CSV file");
-   return;
-  }
+ if (!file) {
+  alert("Please select a CSV file");
+  return;
+ }
 
-  const formData = new FormData();
-  formData.append("file", file);
+ if (!file.name.endsWith(".csv")) {
+  alert("Only CSV files are allowed");
+  return;
+ }
 
-  const res = await api.post("/products/bulk-upload", formData);
+ const formData = new FormData();
+ formData.append("file", file);
 
-  setResult(res.data);
+ const res = await api.post("/products/bulk-upload", formData);
+
+ setResult(res.data);
   reload();
  };
 
