@@ -123,12 +123,16 @@ function ProductForm({ editProduct, setEditProduct, reload }) {
    />
    {errors.quantity && <p className="error">{errors.quantity}</p>}
 
-   <input
+    {/* Category Dropdown */}
+   <select
     name="category"
-    placeholder="Category"
     value={form.category}
     onChange={handleChange}
-   />
+   >
+    <option value="">Select Category</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Accessories">Accessories</option>
+   </select>
    {errors.category && <p className="error">{errors.category}</p>}
 
    <button className="btn-primary">
